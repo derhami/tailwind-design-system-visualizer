@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Tailwind Design System Visualizer
 
 A modern interactive playground for exploring and understanding the Tailwind CSS design system in a visual, intuitive way.
@@ -110,3 +111,25 @@ Created by **Hamidreza**
 ## License
 
 MIT
+=======
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
+
+# Run and deploy your AI Studio app
+
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/a7ae7ad7-5c4d-4558-aee3-4a130c2d94e5
+
+## Run Locally
+
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
+>>>>>>> 3aa6f7c77362073efb282c84295cb3d296746a6b
