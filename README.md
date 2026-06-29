@@ -1,161 +1,104 @@
-# Tailwind Design System Visuaizer
+# Tailwind Design System Visualizer
 
-<p align="center">
-  <strong>An Interactive Visual Toolkit for Exploring Tailwind CSS</strong>
-</p>
+[![React](https://img.shields.io/badge/React-18-blue?logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-5-purple?logo=vite)](https://vitejs.dev)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-06B6D4?logo=tailwindcss)](https://tailwindcss.com)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit-green)](https://tailwind.nounproject.ir)
 
-<p align="center">
-  <a href="https://tailwind.nounproject.ir" target="_blank">
-    <img src="https://img.shields.io/badge/Live-Demo-000000?style=for-the-badge&logo=vercel&logoColor=white" />
-  </a>
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript" />
- Live Demoimg src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite" />
-  <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css" />
-</p>
+An interactive visual toolkit for exploring Tailwind CSS utilities — spacing, typography, colors, layout, positioning, and more — all in one place.
+
+🔗 **Live Demo:** [tailwind.nounproject.ir](https://tailwind.nounproject.ir)
 
 ---
 
-## 🌐 Live Demo
+## Overview
 
-🔗 **Production URL:**  
-https://tailwind.nounproject.ir
-
----
-
-## 📌 Overview
-
-**Twind Design System Visualizer** is a developer-focused interactive tool designed to visually explore Tailwind CSS utilities, design tokens, layout mechanics, spacing scales, typography rules, and UI behaviors in a structured and intuitive interface.
-
-This project bridges the gap between raw utility classes and real-world design understanding by turning Tailwind into a visual learning and inspection system.
+Tailwind CSS is powerful, but its utility-first approach can feel overwhelming without a visual reference. This tool bridges that gap by letting you see, explore, and understand Tailwind's design system interactively — ideal for learning, prototyping, and onboarding.
 
 ---
 
-## 🚀 Core Features
+## Features
 
-- ✅ Sacing scale visualizer
-- ✅ Typography preview system
-- ✅ Color palette explorer
-- ✅ Layout & container inspection
-- ✅ Positioning & z-index demonstration
-- ✅ Effects & utility previews
-- ✅ Global search across utilities
-- ✅ Responsive UI (desktop & mobile)
-- ✅ Developer-friendly component architecture
-
----
-
-## 🧠 Why This Project Exists
-
-Tailwind CSS is powerful, bu exploring and understanding its full design system can be overwhelming.
-
-This tool was built to:
-
-- Help developers understand Tailwind visually
-- Accelerate design system prototyping
-- Improve onboarding for frontend teams
-- Provide a clean inspection layer for utility-first CSS
+- **Spacing Scale Visualizer** — see every spacing value rendered visually
+- **Typography Preview** — font sizes, weights, line heights at a glance
+- **Color Palette Explorer** — full Tailwind color system with hex values
+- **Layout & Container Inspection** — understand container breakpoints and grid behavior
+- **Positioning & Z-Index Demo** — visualize stacking and positioning utilities
+- **Effects & Utility Previews** — shadows, opacity, transitions, and more
+- **Global Search** — quickly find any utility or token
+- **Responsive UI** — works across all screen sizes
+- **Developer-Friendly Architecture** — clean, modular, and easy to extend
 
 ---
 
-## 🏗 Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
-|------------|----------|
-| React | Component-based UI architecture |
-| TypeScript | Type safety & maintainability |
-| Vite | Fast development  optimized builds |
-| Tailwind CSS | Utility-first styling system |
+|---|---|
+| React 18 | UI framework |
+| TypeScript | Type safety |
+| Vite | Fast dev server & optimized builds |
+| Tailwind CSS | Styling & design system |
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 src/
-├── components/
-├── data.ts
-├── types.ts
-├── App.tsx
-├── main.tsx
-└── index.css
+
+├── components/ # UI section components
+
+├── data.ts # Design token data
+
+├── types.ts # TypeScript type definitions
+
+├── App.tsx # Root app component
+
+├── main.tsx # Entry point
+
+└── index.css # Global styles
+
 vite.config.ts
+
 tsconfig.json
 
----
+Getting Started
+bash
 
-## 🛠 Local Development
+Clone the repository
+git clone https://github.com/your-username/tailwind-visualizer.git
 
-### 1️⃣ Clone the repository
-```bash
-git clone https://github.com/YOUR_USERNAME/tailwind-design-system-visualizer.git
-cd tailwind-design-system-visualizer
+cd tailwind-visualizer
 
-2️⃣ Install dependencies
-
+Install dependencies
 npm install
 
-3️⃣ Start development server
-
+Start development server
 npm run dev
 
-The app will run on:
+Other Commands
+bash
 
-http://localhost:3000
+npm run build # Production build
 
-🏭 Production Build
-npm run build
+npm run preview # Preview production build locally
 
-Preview production build:
-
-npm run preview
-
-🔍 Use Cases
-
-    Visual Tailwind reference
-    Teaching Tailwind CSS
-    UI system documentation
-    Internal design system tools
-    Frontend onboarding tool
-
-📈 Future Improvements
-
-    Tailwind class search engine
-    Live playground editor
-    Export configuration utilities
-    Copy utility bundles
-    Dark/Light theme toggle
-    OpenGraph image generation
-    Design token export system
-
-👨‍💻 Author
-
+Use Cases
+Quick visual reference while building UIs
+Teaching Tailwind to new team members
+Documenting a project’s design system
+Developer portfolio showcase
+Roadmap
+[ ] Live class playground with real-time preview
+[ ] Design token export (JSON / CSS variables)
+[ ] Dark / light mode toggle
+[ ] Tailwind v4 support
+[ ] OpenGraph image generation
+[ ] Copy-to-clipboard for class names
+Author
 Hamidreza
 
-Frontend Developer | UI Engineer | System Builder
-📄 License
+Frontend Developer · UI Engineer · System Builder
 
-MIT License
-
-Free for personal and commercial use.
-⭐ Support
-
-If you find this project useful, consider giving it a ⭐ on GitHub.
-
-
----
-
-# 🔥 اگر بخواهی سطحش را یک پله دیگر ببریم
-
-می‌توانیم اضافه کنیم:
-
-- ✅ Preview Screenshot حرفه‌ای
-- ✅ Animated GIF Demo
-- ✅ SEO meta section
-- ✅ Contribution Guide
-- ✅ Architecture section
-- ✅ Performance notes
-- ✅ Roadmap table
-- ✅ Changelog system
-
----
-
-حمیدرضا اگر بخواهی نسخه **Developer Portfolio-grade (سطح رزومه بین‌المللی)** هم آماده می‌کنم که حتی برای اپلای یا جذب پروژه خارجی هم مناسب باشد 🚀
+License
+MIT — free for personal and commercial use.
