@@ -42,7 +42,7 @@ export default function Navbar({
             <Sliders className="h-5 w-5 text-zinc-950" />
           </div>
           <div>
-            <h1 className="text-xs sm:text-base font-bold text-white leading-tight">ویژوالایزر تلویند</h1>
+            <h1 className="text-xs sm:text-base font-bold text-white leading-tight">ویژوالایزر تلویند             ▐</h1>
             <p className="text-[9px] sm:text-[10px] text-zinc-400">Tailwind Design System</p>
           </div>
         </div>

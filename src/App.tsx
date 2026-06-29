@@ -206,7 +206,7 @@ export default function App() {
     <div class="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-tr from-cyan-500 to-indigo-600 shadow-xl shadow-indigo-500/20">
       <svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
     </div>
-    <h1 class="text-3xl font-black text-white">سامانه مستقل ویژوالایزر لوکس سیستم طراحی Tailwind</h1>
+    <h1 class="text-3xl font-black text-white">ویژوالایزر لوکس سیستم طراحی Tailwind</h1>
     <p class="text-slate-400 text-sm max-w-xl mx-auto leading-7">این فایل مستقل و تک‌فایلی مخصوص استفاده کاملاً آفلاین برای مرور کلاس‌ها، شبیه‌سازی گرید، مقیاس‌های فاصله‌گذاری و پالت‌های رنگی بهینه‌سازی شده است.</p>
     
     <div class="glass-panel p-6 rounded-2xl text-right">
@@ -375,7 +375,7 @@ export default function App() {
           <div className="flex items-center gap-1">
             <span>ساخته شده با</span>
             <Heart className="h-3.5 w-3.5 text-rose-500 fill-rose-500 animate-pulse" />
-            <span>و عشق برای جامعه توسعه‌دهندگان وب ایرانی توسط <a href="https://derhami.com">حمیدرضا درهمی</a></span>
+            <span>و عشق برای <a href="https://derhami.com">جامعه توسعه‌دهندگان وب ایرانی</a></span>
           </div>
           <div className="font-mono text-[10px]">
             Tailwind Design System Visualizer Pro v1.2.0 • 2026
