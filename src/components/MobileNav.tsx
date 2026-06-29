@@ -1,0 +1,178 @@
+import React, { useState } from 'react';
+import { Menu, Search, Settings, Eye, X, Compass, ChevronLeft } from 'lucide-react';
+import { SECTIONS } from './Sidebar';
+
+interface MobileNavProps {
+  activeSection: string;
+  isSearchOpen: boolean;
+  setIsSearchOpen: (open: boolean) => void;
+  isSettingsOpen: boolean;
+  setIsSettingsOpen: (open: boolean) => void;
+  isInspectorActive: boolean;
+  setIsInspectorActive: (active: boolean) => void;
+}
+
+export default function MobileNav({
+  activeSection,
+  setIsSearchOpen,
+  setIsSettingsOpen,
+  isInspectorActive,
+  setIsInspectorActive,
+}: MobileNavProps) {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [filterQuery, setFilterQuery] = useState('');
+
+  const handleScrollToSection = (id: string) => {
+    setIsDrawerOpen(false);
+    // Give some small delay to let drawer close animation finish slightly
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        const headerOffset = 120; // larger offset for mobile navbar + dynamic simulation banner
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 150);
+  };
+
+  const filteredSections = SECTIONS.filter(section => 
+    section.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
+    section.id.toLowerCase().includes(filterQuery.toLowerCase())
+  );
+
+  return (
+    <>
+      {/* Floating Bottom Navigation Bar for Mobile (< 768px) */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-zinc-950/80 backdrop-blur-xl border-t border-white/10 px-4 py-2 pb-5 shadow-[0_-10px_35px_rgba(0,0,0,0.6)]">
+        <div className="flex items-center justify-around max-w-lg mx-auto">
+          {/* Section Drawer Toggle */}
+          <button
+            onClick={() => setIsDrawerOpen(true)}
+            className={`flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all ${
+              isDrawerOpen 
+                ? 'text-cyan-400 font-bold scale-105' 
+                : 'text-zinc-400 hover:text-white'
+            }`}
+          >
+            <Compass className={`h-5 w-5 ${isDrawerOpen ? 'text-cyan-400' : 'text-zinc-400'}`} />
+            <span className="text-[10px] tracking-tight">بخش‌ها</span>
+          </button>
+
+          {/* Search Toggle */}
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="flex flex-col items-center gap-1 py-1 px-3 rounded-xl text-zinc-400 hover:text-white transition-all"
+          >
+            <Search className="h-5 w-5" />
+            <span className="text-[10px] tracking-tight">جستجو</span>
+          </button>
+
+          {/* Inspector Toggle (Integrated into Bottom Bar) */}
+          <button
+            onClick={() => setIsInspectorActive(!isInspectorActive)}
+            className={`flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all ${
+              isInspectorActive 
+                ? 'text-emerald-400 font-bold scale-105' 
+                : 'text-zinc-400 hover:text-white'
+            }`}
+          >
+            <Eye className={`h-5 w-5 ${isInspectorActive ? 'text-emerald-400' : 'text-zinc-400'}`} />
+            <span className="text-[10px] tracking-tight">بازرس کلاسی</span>
+          </button>
+
+          {/* Settings Toggle */}
+          <button
+            onClick={() => setIsSettingsOpen(true)}
+            className="flex flex-col items-center gap-1 py-1 px-3 rounded-xl text-zinc-400 hover:text-white transition-all"
+          >
+            <Settings className="h-5 w-5" />
+            <span className="text-[10px] tracking-tight">تنظیمات</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Modern Slide-Up Drawer / Bottom Sheet */}
+      {isDrawerOpen && (
+        <div className="fixed inset-0 z-50 md:hidden">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300"
+            onClick={() => setIsDrawerOpen(false)}
+          />
+
+          {/* Sheet Container */}
+          <div className="absolute bottom-0 left-0 right-0 max-h-[85vh] bg-zinc-950 border-t border-white/10 rounded-t-3xl shadow-[0_-15px_40px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden animate-in slide-in-from-bottom duration-300">
+            {/* Drawer Drag handle indicator */}
+            <div className="flex justify-center py-2.5">
+              <div className="w-12 h-1.5 rounded-full bg-zinc-800" />
+            </div>
+
+            {/* Drawer Header */}
+            <div className="px-5 pb-3 flex items-center justify-between border-b border-zinc-900">
+              <div className="text-right">
+                <h3 className="text-sm font-bold text-white">سامانه ناوبری سریع</h3>
+                <p className="text-[10px] text-zinc-400">انتخاب از بین ۲۲ بخش اصلی سیستم طراحی</p>
+              </div>
+              <button 
+                onClick={() => setIsDrawerOpen(false)}
+                className="p-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            {/* Search Filter input inside drawer */}
+            <div className="p-4 bg-zinc-950 border-b border-zinc-900/60">
+              <div className="relative">
+                <Search className="absolute right-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500" />
+                <input
+                  type="text"
+                  placeholder="جستجو در بخش‌ها..."
+                  value={filterQuery}
+                  onChange={(e) => setFilterQuery(e.target.value)}
+                  className="w-full bg-zinc-900/50 border border-zinc-800/80 rounded-xl py-2 pr-10 pl-4 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/30 text-right font-sans"
+                />
+              </div>
+            </div>
+
+            {/* Sections List */}
+            <div className="flex-1 overflow-y-auto px-4 py-2 space-y-1 pb-10">
+              {filteredSections.length > 0 ? (
+                filteredSections.map((section) => {
+                  const Icon = section.icon;
+                  const isActive = activeSection === section.id;
+                  return (
+                    <button
+                      key={section.id}
+                      onClick={() => handleScrollToSection(section.id)}
+                      className={`w-full flex items-center justify-between rounded-xl p-3 text-right text-xs transition-all ${
+                        isActive
+                          ? 'bg-gradient-to-r from-cyan-500/15 to-cyan-500/5 text-cyan-400 border-r-2 border-cyan-500 font-bold'
+                          : 'bg-zinc-900/20 text-zinc-400 hover:bg-zinc-900 hover:text-white border-r-2 border-transparent'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <Icon className={`h-4 w-4 shrink-0 ${isActive ? 'text-cyan-400' : 'text-zinc-500'}`} />
+                        <span className="truncate">{section.name}</span>
+                      </div>
+                      <ChevronLeft className={`h-3.5 w-3.5 transition-transform ${isActive ? 'text-cyan-400 translate-x-0.5' : 'text-zinc-600'}`} />
+                    </button>
+                  );
+                })
+              ) : (
+                <div className="text-center py-8 text-xs text-zinc-500">
+                  بخش مورد نظر پیدا نشد.
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
